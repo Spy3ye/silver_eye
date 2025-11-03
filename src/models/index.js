@@ -1,8 +1,8 @@
 import { Sequelize } from 'sequelize';
 import sequelize from '../config/database.js';
 
-// Import models here
-// import User from './User.js';
+// Import models
+import Participant from './Participant.js';
 
 const db = {
   sequelize,
@@ -10,10 +10,10 @@ const db = {
 };
 
 // Initialize models
-// db.User = User(sequelize, Sequelize.DataTypes);
+db.Participant = Participant;
 
-// Define associations here
-// db.User.associate(db);
+// Define associations here (if needed)
+// db.Participant.associate(db);
 
 export default db;
 

@@ -12,6 +12,7 @@ Professional Express.js backend with MySQL database and Sequelize ORM.
 - ✅ JWT authentication support
 - ✅ Input validation
 - ✅ Error handling
+- ✅ Swagger API documentation
 - ✅ Clean architecture (MVC pattern)
 
 ## Project Structure
@@ -21,7 +22,8 @@ backend/
 ├── src/
 │   ├── config/          # Configuration files
 │   │   ├── database.js  # Sequelize database config
-│   │   └── config.js    # App configuration
+│   │   ├── config.js    # App configuration
+│   │   └── swagger.js   # Swagger documentation config
 │   ├── controllers/     # Route controllers
 │   ├── models/          # Sequelize models
 │   ├── routes/          # API routes
@@ -84,10 +86,18 @@ npm start
 - `JWT_EXPIRES_IN` - JWT expiration time
 - `CLIENT_URL` - Client URL for CORS
 
+## API Documentation
+
+Swagger UI is available at: `http://localhost:3000/api-docs`
+
+The Swagger JSON specification is available at: `http://localhost:3000/api-docs.json`
+
 ## API Endpoints
 
 - `GET /health` - Health check endpoint
 - `GET /api` - API status endpoint
+- `GET /api-docs` - Swagger UI documentation
+- `GET /api-docs.json` - Swagger JSON specification
 
 ## Scripts
 

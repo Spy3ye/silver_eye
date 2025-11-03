@@ -1,5 +1,6 @@
 import app from './src/app.js';
 import { sequelize } from './src/config/database.js';
+import { initializeDatabase } from './src/utils/database-init.js';
 
 const PORT = process.env.PORT || 3000;
 
@@ -10,13 +11,14 @@ const startServer = async () => {
     await sequelize.authenticate();
     console.log('✅ Database connection established successfully.');
 
-    // Sync database (use with caution in production)
-    // await sequelize.sync({ alter: true });
+    // Initialize database (run migrations and seeders)
+    await initializeDatabase();
     
     // Start server
     app.listen(PORT, () => {
       console.log(`🚀 Server is running on port ${PORT}`);
       console.log(`📡 Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
     });
   } catch (error) {
     console.error('❌ Unable to start server:', error);

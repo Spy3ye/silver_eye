@@ -18,7 +18,9 @@ export default {
   // JWT
   jwt: {
     secret: process.env.JWT_SECRET || 'your-secret-key-change-in-production',
-    expiresIn: process.env.JWT_EXPIRES_IN || '24h'
+    expiresIn: process.env.JWT_EXPIRES_IN || '24h',
+    accessTokenExpiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN || '15m',
+    refreshTokenExpiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN || '7d'
   },
   
   // CORS

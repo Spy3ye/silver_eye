@@ -12,14 +12,23 @@ export const authenticateToken = (req, res, next) => {
     });
   }
 
-  jwt.verify(token, config.jwt.secret, (err, user) => {
+  jwt.verify(token, config.jwt.secret, (err, decoded) => {
     if (err) {
       return res.status(403).json({
         success: false,
         message: 'Invalid or expired token'
       });
     }
-    req.user = user;
+
+    // Verify it's an access token
+    if (decoded.type !== 'access') {
+      return res.status(403).json({
+        success: false,
+        message: 'Invalid token type'
+      });
+    }
+
+    req.user = decoded;
     next();
   });
 };
