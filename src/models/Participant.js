@@ -55,6 +55,24 @@ const Participant = sequelize.define('Participant', {
     validate: {
       notEmpty: true
     }
+  },
+  role: {
+    type: DataTypes.ENUM('admin', 'participant', 'author'),
+    allowNull: false,
+    defaultValue: 'participant',
+    validate: {
+      isIn: [['admin', 'participant', 'author']]
+    }
+  },
+  teamId: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'teams',
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   }
 }, {
   tableName: 'participants',

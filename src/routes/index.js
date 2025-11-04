@@ -1,5 +1,7 @@
 import express from 'express';
 import authRoutes from './auth.routes.js';
+import teamRoutes from './team.routes.js';
+import participantRoutes from './participant.routes.js';
 
 const router = express.Router();
 
@@ -39,6 +41,12 @@ router.get('/', (req, res) => {
 
 // Auth routes
 router.use('/auth', authRoutes);
+
+// Team routes
+router.use('/teams', teamRoutes);
+
+// Participant routes
+router.use('/participants', participantRoutes);
 
 // Import other route modules here
 // import userRoutes from './user.routes.js';

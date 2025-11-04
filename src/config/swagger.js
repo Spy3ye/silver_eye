@@ -128,6 +128,20 @@ const options = {
               }
             }
           }
+        },
+        ForbiddenError: {
+          description: 'Forbidden - Insufficient permissions or role',
+          content: {
+            'application/json': {
+              schema: {
+                $ref: '#/components/schemas/Error'
+              },
+              example: {
+                success: false,
+                message: 'Access denied. Required role: admin'
+              }
+            }
+          }
         }
       }
     },
@@ -143,6 +157,14 @@ const options = {
       {
         name: 'Authentication',
         description: 'Participant authentication endpoints (login, refresh, logout, profile)'
+      },
+      {
+        name: 'Teams',
+        description: 'Team management endpoints (create, get all teams, get by ID, update, delete, manage participants)'
+      },
+      {
+        name: 'Participants',
+        description: 'Participant management endpoints (create, get all, get by ID) - Admin only'
       }
     ]
   },

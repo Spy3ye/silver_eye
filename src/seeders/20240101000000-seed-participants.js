@@ -11,6 +11,7 @@ export const up = async (queryInterface, Sequelize) => {
   const hashedPassword3 = await bcrypt.hash('password789', 10);
 
   // Pre-defined participants
+  // Note: Roles will be set in the database. Default is 'participant'
   const participants = [
     {
       fullname: 'John Doe',
@@ -19,6 +20,7 @@ export const up = async (queryInterface, Sequelize) => {
       username: 'johndoe',
       password: hashedPassword1,
       registration_number: 'REG-2024-001',
+      role: 'participant', // Default role, can be changed in database
       created_at: new Date(),
       updated_at: new Date()
     },
@@ -29,6 +31,7 @@ export const up = async (queryInterface, Sequelize) => {
       username: 'janesmith',
       password: hashedPassword2,
       registration_number: 'REG-2024-002',
+      role: 'participant', // Default role, can be changed in database
       created_at: new Date(),
       updated_at: new Date()
     },
@@ -39,6 +42,7 @@ export const up = async (queryInterface, Sequelize) => {
       username: 'bobjohnson',
       password: hashedPassword3,
       registration_number: 'REG-2024-003',
+      role: 'participant', // Default role, can be changed in database
       created_at: new Date(),
       updated_at: new Date()
     }

@@ -11,6 +11,7 @@ export const generateAccessToken = (participant) => {
       id: participant.id,
       username: participant.username,
       email: participant.email,
+      role: participant.role || 'participant',
       type: 'access'
     },
     config.jwt.secret,
@@ -28,6 +29,7 @@ export const generateRefreshToken = (participant) => {
     {
       id: participant.id,
       username: participant.username,
+      role: participant.role || 'participant',
       type: 'refresh'
     },
     config.jwt.secret,

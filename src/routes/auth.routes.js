@@ -32,6 +32,15 @@ const router = express.Router();
  *         registrationNumber:
  *           type: string
  *           example: "REG-2024-001"
+ *         role:
+ *           type: string
+ *           enum: [admin, participant, author]
+ *           example: participant
+ *         teamId:
+ *           type: integer
+ *           nullable: true
+ *           example: 1
+ *           description: ID of the team the participant belongs to
  *         createdAt:
  *           type: string
  *           format: date-time
