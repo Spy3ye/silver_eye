@@ -2,6 +2,9 @@ import express from 'express';
 import authRoutes from './auth.routes.js';
 import teamRoutes from './team.routes.js';
 import participantRoutes from './participant.routes.js';
+import chapterRoutes from './chapter.routes.js';
+import storyRoutes from './story.routes.js';
+import challengeRoutes from './challenge.routes.js';
 
 const router = express.Router();
 
@@ -47,6 +50,15 @@ router.use('/teams', teamRoutes);
 
 // Participant routes
 router.use('/participants', participantRoutes);
+
+// Chapter routes
+router.use('/chapters', chapterRoutes);
+
+// Story routes
+router.use('/stories', storyRoutes);
+
+// Challenge routes
+router.use('/challenges', challengeRoutes);
 
 // Import other route modules here
 // import userRoutes from './user.routes.js';

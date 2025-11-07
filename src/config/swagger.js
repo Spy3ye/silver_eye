@@ -165,6 +165,18 @@ const options = {
       {
         name: 'Participants',
         description: 'Participant management endpoints (create, get all, get by ID) - Admin only'
+      },
+      {
+        name: 'Chapters',
+        description: 'Chapter management endpoints (admin CRUD, view for all roles)'
+      },
+      {
+        name: 'Stories',
+        description: 'Story management endpoints (admin CRUD, view for all roles)'
+      },
+      {
+        name: 'Challenges',
+        description: 'Challenge management endpoints (admin CRUD, view for all roles)'
       }
     ]
   },

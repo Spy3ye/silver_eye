@@ -4,6 +4,9 @@ import sequelize from '../config/database.js';
 // Import models
 import Participant from './Participant.js';
 import Team from './Team.js';
+import Chapter from './Chapter.js';
+import Story from './Story.js';
+import Challenge from './Challenge.js';
 
 const db = {
   sequelize,
@@ -13,6 +16,9 @@ const db = {
 // Initialize models
 db.Participant = Participant;
 db.Team = Team;
+db.Chapter = Chapter;
+db.Story = Story;
+db.Challenge = Challenge;
 
 // Define associations
 // Participant belongs to one Team (direct relationship via team_id)
@@ -42,6 +48,27 @@ Team.belongsToMany(Participant, {
   foreignKey: 'team_id',
   otherKey: 'participant_id',
   as: 'Participants'
+});
+
+// Chapters → Stories → Challenges associations
+Chapter.hasMany(Story, {
+  foreignKey: 'chapterId',
+  as: 'stories'
+});
+
+Story.belongsTo(Chapter, {
+  foreignKey: 'chapterId',
+  as: 'chapter'
+});
+
+Story.hasMany(Challenge, {
+  foreignKey: 'storyId',
+  as: 'challengeItems'
+});
+
+Challenge.belongsTo(Story, {
+  foreignKey: 'storyId',
+  as: 'story'
 });
 
 export default db;
